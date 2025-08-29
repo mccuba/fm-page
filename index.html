@@ -21,7 +21,16 @@
 
     gtag('config', 'G-PYVRSFMDRL');
   </script>
-
+    <script>
+    function scrollCarousel(direction) {
+      const carousel = document.getElementById("videoCarousel");
+      const itemWidth = carousel.querySelector(".video-item").offsetWidth + 16; // ancho + gap
+      carousel.scrollBy({
+        left: direction * itemWidth,
+        behavior: "smooth"
+      });
+    }
+    </script>
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
 
@@ -67,7 +76,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2504.01338"
+                <a href="https://doi.org/10.1016/j.cag.2025.104374"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -75,6 +84,7 @@
                   <span>Paper</span>
                 </a>
               </span>
+<!--
               <span class="link-block">
                 <a href="https://arxiv.org/abs/2504.01338"
                    class="external-link button is-normal is-rounded is-dark">
@@ -84,6 +94,7 @@
                   <span>arXiv</span>
                 </a>
               </span>
+-->
               <!-- Video Link. -->
 <!--
               <span class="link-block">
@@ -119,10 +130,12 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
+<!--
       <video id="teaser" autoplay muted loop playsinline height="100%">
         <source src="./static/videos/teaser.mp4"
                 type="video/mp4">
       </video>
+-->
       <h2 class="subtitle has-text-centered">
         <span class="dnerf">FlowMotion</span> for smooth, high-fidelity 3D human motion generation
       </h2>
@@ -130,46 +143,56 @@
   </div>
 </section>
 
+
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
-      <div class="video-grid">
-        <div class="video-item">
-          <video src="videos/m0.mp4" controls muted loop playsinline></video>
-          <p>a person quickly sidesteps to the right and regains balance.</p>
+      <div class="carousel-wrapper">
+        <!-- Botón izquierda -->
+        <button class="carousel-btn left" onclick="scrollCarousel(-1)">&#10094;</button>
+        
+        <div class="video-carousel" id="videoCarousel">
+          <div class="video-item">
+            <video src="videos/m4.mp4" autoplay muted loop playsinline></video>
+            <p>a person is walking in a counter counterclockwise circle.</p>
+          </div>
+          <div class="video-item">
+            <video src="videos/m5.mp4" autoplay muted loop playsinline></video>
+            <p>a person kicks.</p>
+          </div>
+          <div class="video-item">
+            <video src="videos/m6.mp4" autoplay muted loop playsinline></video>
+            <p>a person runs forward and stops short.</p>
+          </div>
+          <div class="video-item">
+            <video src="videos/m0.mp4" autoplay muted loop playsinline></video>
+            <p>a person quickly sidesteps to the right and regains balance.</p>
+          </div>
+          <div class="video-item">
+            <video src="videos/m1.mp4" autoplay muted loop playsinline></video>
+            <p>a person waves his left hand over head.</p>
+          </div>
+         <div class="video-item">
+            <video src="videos/m2.mp4" autoplay muted loop playsinline></video>
+            <p>a man raises his right arm and holds it across his chest.</p>
+          </div>
+          <div class="video-item">
+            <video src="videos/m3.mp4" autoplay muted loop playsinline></video>
+            <p>a person appears to be ice skating.</p>
+          </div>
+          <div class="video-item">
+            <video src="videos/m7.mp4" autoplay muted loop playsinline></video>
+            <p>a person seeming to be walking over a substance back and forth slowly.</p>
+          </div>
         </div>
-        <div class="video-item">
-          <video src="videos/m1.mp4" controls muted loop playsinline></video>
-          <p>a person waves his left hand over head.</p>
-        </div>
-        <div class="video-item">
-          <video src="videos/m2.mp4" controls muted loop playsinline></video>
-          <p>a man raises his right arm and holds it across his chest.</p>
-        </div>
-        <div class="video-item">
-          <video src="videos/m3.mp4" controls muted loop playsinline></video>
-          <p>a person appears to be ice skating.</p>
-        </div>
-        <div class="video-item">
-          <video src="videos/m4.mp4" controls muted loop playsinline></video>
-          <p>a person is walking in a counter counterclockwise circle.</p>
-        </div>
-        <div class="video-item">
-          <video src="videos/m5.mp4" controls muted loop playsinline></video>
-          <p>a person kicks.</p>
-        </div>
-        <div class="video-item">
-          <video src="videos/m6.mp4" controls muted loop playsinline></video>
-          <p>a person runs forward and stops short.</p>
-        </div>
-        <div class="video-item">
-          <video src="videos/m7.mp4" controls muted loop playsinline></video>
-          <p>a person seeming to be walking over a substance back and forth slowly.</p>
-        </div>
+
+        <!-- Botón derecha -->
+        <button class="carousel-btn right" onclick="scrollCarousel(1)">&#10095;</button>
       </div>
     </div>
   </div>
 </section>
+
 
 
 
@@ -207,6 +230,9 @@
 
 
 
+
+
+
 <!--
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
@@ -216,6 +242,43 @@
   </div>
 </section>
 -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <div class="bibtex-block" style="position: relative; max-width: 800px; margin: auto;">
+      <pre style="background:#f5f5f5; padding:1rem; border-radius:8px; overflow-x:auto;">
+<code id="bibtex-entry">
+@article{CANALESCUBA2025104374,
+  title     = {FlowMotion: Target-predictive conditional flow matching for Jitter-Reduced text-driven human motion generation},
+  journal   = {Computers & Graphics},
+  volume    = {132},
+  pages     = {104374},
+  year      = {2025},
+  issn      = {0097-8493},
+  doi       = {https://doi.org/10.1016/j.cag.2025.104374},
+  url       = {https://www.sciencedirect.com/science/article/pii/S0097849325002158},
+  author    = {Manolo {Canales Cuba} and Vinícius {do Carmo Melício} and João Paulo Gois},
+  keywords  = {3D animation, Human motion synthesis, Flow matching},
+  abstract  = {Achieving high-fidelity and temporally smooth 3D human motion generation remains challenging, particularly within resource-constrained environments. We introduce FlowMotion, a novel method leveraging Conditional Flow Matching (CFM). FlowMotion incorporates a training objective within CFM that focuses on more accurately predicting target motion in 3D human motion generation, resulting in enhanced generation fidelity and temporal smoothness while maintaining the fast synthesis times characteristic of flow-matching-based methods. FlowMotion achieves state-of-the-art jitter performance, achieving the best jitter in the KIT dataset, the second-best jitter in the HumanML3D dataset, and a competitive FID value for both datasets. This combination provides robust and natural motion sequences, offering equilibrium between generation quality and temporal naturalness.}
+}
+</code></pre>
+      <button onclick="copyBibtex()" 
+              class="button is-small is-dark is-rounded"
+              style="position:absolute; top:10px; right:10px;">
+        Copy
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  function copyBibtex() {
+    const bibtex = document.getElementById("bibtex-entry").innerText;
+    navigator.clipboard.writeText(bibtex).then(() => {
+      alert("✅ BibTeX copied to clipboard!");
+    });
+  }
+</script>
 
 
 <footer class="footer">
